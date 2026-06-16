@@ -1,0 +1,177 @@
+/* ============================================
+   DOMUS VALORIS - BOEDELSERVICE & ANTIEK
+   JavaScript Functionaliteit
+   ============================================ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // Mobile Navigation Toggle
+    // ============================================
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    }
+    
+    // ============================================
+    // FAQ Accordion
+    // ============================================
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+            // Close other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+    
+    // ============================================
+    // Smooth Scroll for Anchor Links
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // ============================================
+    // Navbar Background on Scroll
+    // ============================================
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // ============================================
+    // Contact Form Handling
+    // ============================================
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Validate required fields
+            const requiredFields = ['naam', 'telefoon', 'email', 'adres'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const input = contactForm.querySelector(`[name="${field}"]`);
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#e53e3e';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '#e2e8f0';
+                }
+            });
+            
+            // Email validation
+            const emailInput = contactForm.querySelector('[name="email"]');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.style.borderColor = '#e53e3e';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message (in a real implementation, you would send data to a server)
+                alert('Bedankt voor je aanvraag! We nemen binnen 24 uur contact met je op.');
+                contactForm.reset();
+                
+                // In a real implementation, you would send the data:
+                // fetch('/api/contact', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(data)
+                // });
+            } else {
+                alert('Vul alle verplichte velden correct in.');
+            }
+        });
+    }
+    
+    // ============================================
+    // Scroll Animations (Intersection Observer)
+    // ============================================
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        observer.observe(section);
+    });
+    
+    // Make first section visible immediately
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.style.opacity = '1';
+    }
+    
+});
+
+// ============================================
+// Console Welcome Message
+// ============================================
+console.log('%c🏠 Domus Valoris', 'font-size: 24px; font-weight: bold; color: #1a365d;');
+console.log('%cBoedelservice & Antiek', 'font-size: 14px; color: #c9a962;');
+console.log('Website ontwikkeld met zorg en aandacht.');
