@@ -1346,7 +1346,6 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
 }
 
 .dienst-card {
