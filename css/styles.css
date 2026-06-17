@@ -1149,6 +1149,15 @@ img {
     padding: 0.25rem 0;
 }
 
+.hero .contact-item a {
+    color: var(--color-cream-light);
+    text-decoration: none;
+}
+
+.hero .contact-item a:hover {
+    color: var(--color-secondary);
+}
+
 .hero .contact-item i {
     width: 18px;
     height: 18px;
