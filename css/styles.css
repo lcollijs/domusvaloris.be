@@ -2059,6 +2059,15 @@ img {
     color: var(--color-secondary);
 }
 
+.contact-detail a {
+    color: var(--color-cream-light);
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    color: var(--color-secondary);
+}
+
 .contact-form-container {
     background: white;
     padding: var(--spacing-lg);
