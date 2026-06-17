@@ -53,7 +53,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
+            let targetId = this.getAttribute('href');
+            
+            // On mobile, redirect #contact links to the form directly
+            if (targetId === '#contact' && window.innerWidth <= 768) {
+                targetId = '#contactform';
+            }
+            
             const target = document.querySelector(targetId);
             
             if (target) {
