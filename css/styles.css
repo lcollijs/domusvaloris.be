@@ -767,8 +767,16 @@ img {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 3fr;
     gap: var(--spacing-lg);
+}
+
+.contact-info {
+    order: -1;
+}
+
+.contact-form-container {
+    order: 1;
 }
 
 .contact-info h3 {
@@ -947,10 +955,6 @@ img {
     }
     
     .verwachtingen-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-grid {
         grid-template-columns: 1fr;
     }
     
@@ -2239,10 +2243,6 @@ img {
         grid-template-columns: 1fr;
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2256,6 +2256,18 @@ img {
 @media (max-width: 768px) {
     .form-row {
         grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        order: 1;
+    }
+    
+    .contact-form-container {
+        order: 0;
     }
     
     .diensten-grid {
