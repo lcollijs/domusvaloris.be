@@ -1578,7 +1578,7 @@ img {
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center 30%;
     border-radius: var(--border-radius);
     box-shadow: none;
 }
@@ -2371,7 +2371,7 @@ img {
         aspect-ratio: 1 / 1;
         max-height: none;
         object-fit: cover;
-        object-position: center 40%;
+        object-position: center 30%;
     }
     
     /* Recensies responsive */
@@ -2805,7 +2805,7 @@ img {
         aspect-ratio: 1 / 1;
         max-height: none;
         object-fit: cover;
-        object-position: center 40%;
+        object-position: center 30%;
         border-radius: var(--border-radius);
     }
     
