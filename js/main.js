@@ -120,16 +120,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (isValid) {
-                // Show success message (in a real implementation, you would send data to a server)
-                alert('Bedankt voor je aanvraag! We nemen binnen 24 uur contact met je op.');
-                contactForm.reset();
+                // Disable button and show loading state
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Verzenden...';
                 
-                // In a real implementation, you would send the data:
-                // fetch('/api/contact', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(data)
-                // });
+                // Send to Google Sheets
+                fetch('https://script.google.com/macros/s/AKfycbzizRcx5Iu-UB2CUyV8h7OWye3tiHggdzO2jVND4G9mIp2Rbv5CJMlJlewMf2PH1NDoDA/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                .then(() => {
+                    // Show success modal
+                    const modal = document.getElementById('successModal');
+                    if (modal) {
+                        modal.classList.add('active');
+                    } else {
+                        alert('Bedankt voor je aanvraag! We nemen binnen 24 uur contact met je op.');
+                    }
+                    contactForm.reset();
+                })
+                .catch(() => {
+                    alert('Er ging iets mis. Probeer het opnieuw of bel ons direct.');
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                });
             } else {
                 alert('Vul alle verplichte velden correct in.');
             }
