@@ -321,7 +321,8 @@ img {
     color: var(--color-text-light);
     max-width: 700px;
     margin: 0 auto var(--spacing-lg);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    line-height: 1.7;
 }
 
 .intro-grid {
@@ -1240,7 +1241,8 @@ img {
     color: var(--color-text-light);
     max-width: 700px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    line-height: 1.7;
 }
 
 .features-grid {
@@ -1338,7 +1340,8 @@ img {
     color: var(--color-text-light);
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    line-height: 1.7;
     text-align: center;
 }
 
