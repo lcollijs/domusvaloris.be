@@ -422,6 +422,18 @@ img {
     font-size: 0.95rem;
 }
 
+.diensten-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border-radius: var(--border-radius);
+}
+
+.diensten-cta .btn {
+    font-size: 1rem;
+}
+
 /* ============================================
    WERKWIJZE SECTION
    ============================================ */
