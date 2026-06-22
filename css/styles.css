@@ -2643,18 +2643,29 @@ img {
     background: var(--color-primary);
     color: var(--color-cream);
     border: none;
-    padding: 0.875rem 2rem;
+    padding: 1rem 2.5rem;
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 500;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: var(--transition);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    min-height: 48px;
+    position: relative;
+    z-index: 10001;
 }
 
 .modal-close:hover {
     background: var(--color-primary-light);
     transform: translateY(-2px);
+}
+
+.modal-close:active {
+    transform: scale(0.98);
+    background: var(--color-primary-light);
 }
 
 /* ============================================

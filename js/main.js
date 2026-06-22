@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.textContent = 'Verzenden...';
                 
                 // Send to Google Sheets
-                fetch('https://script.google.com/macros/s/AKfycbzizRcx5Iu-UB2CUyV8h7OWye3tiHggdzO2jVND4G9mIp2Rbv5CJMlJlewMf2PH1NDoDA/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbxABRidYvNICQOijWFVuu_FCwnzNsuZc3J9Nd4ZIABKU1vlz4P2wjyuwAJW7jdUdMHq1g/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
@@ -158,6 +158,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             } else {
                 alert('Vul alle verplichte velden correct in.');
+            }
+        });
+    }
+    
+    // ============================================
+    // Success Modal Close Handling
+    // ============================================
+    const successModal = document.getElementById('successModal');
+    const modalCloseBtn = document.getElementById('modalClose');
+    
+    function closeModalAndGoHome() {
+        if (successModal) {
+            successModal.classList.remove('active');
+        }
+        // Scroll naar de bovenkant van de pagina
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    if (modalCloseBtn) {
+        // Support voor zowel click als touch
+        modalCloseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeModalAndGoHome();
+        });
+        
+        modalCloseBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeModalAndGoHome();
+        });
+    }
+    
+    // Sluit modal ook bij klikken op overlay (buiten de modal content)
+    if (successModal) {
+        successModal.addEventListener('click', function(e) {
+            if (e.target === successModal) {
+                closeModalAndGoHome();
+            }
+        });
+        
+        successModal.addEventListener('touchend', function(e) {
+            if (e.target === successModal) {
+                closeModalAndGoHome();
             }
         });
     }
