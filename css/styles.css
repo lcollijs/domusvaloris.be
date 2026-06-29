@@ -914,6 +914,51 @@ img {
     color: var(--color-secondary);
 }
 
+/* Footer owners styling */
+.footer-owners {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-owner {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-owner strong {
+    color: white;
+    font-weight: 500;
+}
+
+.footer-owner a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-owner a:hover {
+    color: var(--color-secondary);
+}
+
+.owner-vat {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-general {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-general a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-general a:hover {
+    color: var(--color-secondary);
+}
+
 .footer-bottom {
     padding-top: var(--spacing-md);
     text-align: center;
