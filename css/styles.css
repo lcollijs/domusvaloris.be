@@ -916,24 +916,29 @@ img {
 
 /* Footer owners styling */
 .footer-owners {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
 }
 
 .footer-owner {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
 }
 
 .footer-owner strong {
     color: white;
     font-weight: 500;
+    display: block;
+    margin-bottom: 0.25rem;
 }
 
 .footer-owner a {
     color: rgba(255, 255, 255, 0.7);
+    display: block;
 }
 
 .footer-owner a:hover {
@@ -941,18 +946,22 @@ img {
 }
 
 .owner-vat {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.5);
+    display: block;
+    margin-top: 0.25rem;
 }
 
 .footer-general {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--spacing-sm);
 }
 
 .footer-general a {
     color: rgba(255, 255, 255, 0.7);
+    display: block;
 }
 
 .footer-general a:hover {
@@ -2510,8 +2519,17 @@ img {
     }
     
     .footer-owners {
-        flex-direction: column;
-        gap: var(--spacing-sm);
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        gap: var(--spacing-md);
+    }
+    
+    .footer-owner {
+        text-align: center;
+    }
+    
+    .footer-general {
+        text-align: center;
     }
 }
 
