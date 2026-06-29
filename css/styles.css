@@ -1125,7 +1125,7 @@ img {
     width: 480px;
     height: 480px;
     object-fit: contain;
-    padding: 30px;
+    padding: 0;
     border-radius: 50%;
 }
 
@@ -2544,8 +2544,7 @@ img {
     }
     
     .hero-logo img {
-        height: 200px;
-        padding: 18px;
+        padding: 0;
     }
     
     .hero h1 {
@@ -2592,10 +2591,6 @@ img {
 
 /* Tablet landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .hero-logo img {
-        height: 200px;
-    }
-    
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2843,7 +2838,7 @@ img {
     .logo-circle img {
         width: 240px !important;
         height: 240px !important;
-        padding: 20px;
+        padding: 0;
         object-fit: contain;
     }
     
@@ -3042,7 +3037,7 @@ img {
     .logo-circle img {
         width: 200px !important;
         height: 200px !important;
-        padding: 18px;
+        padding: 0;
         object-fit: contain;
     }
     
@@ -3090,7 +3085,7 @@ img {
     .logo-circle img {
         width: 300px !important;
         height: 300px !important;
-        padding: 20px;
+        padding: 0;
         object-fit: contain;
     }
     
