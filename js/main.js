@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.textContent = 'Verzenden...';
                 
                 // Send to Google Sheets
-                fetch('https://script.google.com/macros/s/AKfycbwcCXlAi977uQq6cQcaZk7hTLeKPc5yhIZy6QY5RxuWdP48Cz_w6uy8q2vVqBXwL9DUOw/exec', {
+                fetch('https://script.google.com/a/macros/domusvaloris.be/s/AKfycbxUDomSyKss6iJDTgH2N9YLpqkn24OQ-pas2fNaTluQa7L0np9X7QvYk-9-JBtc57A/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
